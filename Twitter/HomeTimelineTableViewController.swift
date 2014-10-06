@@ -11,6 +11,7 @@ import UIKit
 class HomeTimelineTableViewController: UITableViewController {
     
     var tweets: [Tweet] = [Tweet]()
+    var timelineType = "home"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +39,17 @@ class HomeTimelineTableViewController: UITableViewController {
     }
     
     func loadHomeTimeline() {
-        TwitterClient.sharedInstance.getHomeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-            self.tweets = tweets!
-            self.tableView.reloadData()
-        })
+        if timelineType == "home" {
+            TwitterClient.sharedInstance.getHomeTimelineWithParams(nil, completion: { (tweets, error) -> () in
+                self.tweets = tweets!
+                self.tableView.reloadData()
+            })
+        } else {
+            TwitterClient.sharedInstance.getMentionTimelineWithParams(nil, completion: { (tweets, error) -> () in
+                self.tweets = tweets!
+                self.tableView.reloadData()
+            })
+        }
     }
     
     func refresh(sender: AnyObject?) {
@@ -73,6 +81,11 @@ class HomeTimelineTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as TweetTableViewCell
 
         cell.setTweet(tweets[indexPath.row])
+        cell.profileImage.userInteractionEnabled = true
+        
+        var tap = UITapGestureRecognizer(target: self, action: "didTapProfileImage:");
+        cell.profileImage.tag = indexPath.row
+        cell.profileImage.addGestureRecognizer(tap)
 
         return cell
     }
@@ -82,6 +95,15 @@ class HomeTimelineTableViewController: UITableViewController {
         var tweetDetailVC = TweetDetailViewController()
         tweetDetailVC.tweet = tweets[indexPath.row]
         self.navigationController?.pushViewController(tweetDetailVC, animated: true)
+    }
+    
+    func didTapProfileImage(sender: AnyObject?) {
+        let tap = sender as UITapGestureRecognizer
+        let view = tap.view as UIImageView
+        var userProfileVC = UserProfileViewController(nibName: "UserProfileViewController", bundle: nil)
+        userProfileVC.user = tweets[view.tag].user?
+        
+        self.navigationController?.pushViewController(userProfileVC, animated: true)
     }
     
 }

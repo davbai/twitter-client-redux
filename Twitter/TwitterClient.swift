@@ -17,7 +17,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     
     class var sharedInstance: TwitterClient {
         struct Static {
-            static let instance = TwitterClient(baseURL: twitterBaseURL, consumerKey: "CONSUMER_KEY", consumerSecret: "CONSUMER_SECRET")
+            static let instance = TwitterClient(baseURL: twitterBaseURL, consumerKey: "JRi5Wp7AzJUZPOVAU4AhI6jkR", consumerSecret: "2P6sPa2BFVyqKdAnMBqQSJZDXjCwCxfr4rM5uefRX1oWDeS1yX")
         }
             
         return Static.instance
@@ -29,6 +29,16 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             completion(tweets: tweets, error: nil)
             }, failure: { (opertion: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("error in getting timeline")
+                completion(tweets: nil, error: error)
+        })
+    }
+    
+    func getMentionTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/mentions_timeline.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            var tweets = Tweet.tweetsWithArray(response as [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            }, failure: { (opertion: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("error in getting mentions timeline")
                 completion(tweets: nil, error: error)
         })
     }

@@ -26,10 +26,13 @@ class LoginViewController: UIViewController {
             (user: User?, error: NSError?) in
             if user != nil {
                 
-                var navController = UINavigationController()
-                var homeTimelineVC = HomeTimelineTableViewController(nibName: "HomeTimelineTableViewController", bundle: nil)
-                navController.pushViewController(homeTimelineVC, animated: true)
-                self.presentViewController(navController, animated: true, completion: nil)
+//                var navController = UINavigationController()
+//                var homeTimelineVC = HomeTimelineTableViewController(nibName: "HomeTimelineTableViewController", bundle: nil)
+//                navController.pushViewController(homeTimelineVC, animated: true)
+//                self.presentViewController(navController, animated: true, completion: nil)
+                var homeVC = ContainerViewController(nibName: "ContainerViewController", bundle: nil)
+                self.presentViewController(homeVC, animated: true, completion: nil)
+                
             } else {
                 // handle login error
             }

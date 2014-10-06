@@ -21,10 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if User.currentUser != nil {
             // Go to logged in screen
-            var navController = UINavigationController()
-            var homeTimelineVC = HomeTimelineTableViewController(nibName: "HomeTimelineTableViewController", bundle: nil)
-            navController.pushViewController(homeTimelineVC, animated: true)
-            self.window?.rootViewController = navController
+            var homeVC = ContainerViewController(nibName: "ContainerViewController", bundle: nil)
+            self.window?.rootViewController = homeVC
         } else {
             var loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
             self.window?.rootViewController = loginVC

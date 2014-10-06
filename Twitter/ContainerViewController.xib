@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController" customModule="Twitter" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="pJN-yM-VMw" id="Wrp-af-otA"/>
+                <outlet property="contentViewXConstraint" destination="Ccv-Gi-xvb" id="XYQ-jA-7vl"/>
+                <outlet property="homeButton" destination="jYr-TS-YB6" id="6Cq-h3-Tcn"/>
+                <outlet property="mentionsButton" destination="IZ7-Ir-oxb" id="i4H-Va-IMd"/>
+                <outlet property="profileButton" destination="7o0-ay-ciY" id="0Y7-LN-o7Z"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXf-f3-PaR">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-Yo-yXK">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="600"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYr-TS-YB6">
+                                    <rect key="frame" x="60" y="54" width="41" height="30"/>
+                                    <state key="normal" title="Home">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTapSidebarButton:" destination="-1" eventType="touchUpInside" id="MJY-Gi-VWp"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7o0-ay-ciY">
+                                    <rect key="frame" x="58" y="142" width="44" height="30"/>
+                                    <state key="normal" title="Profile">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTapSidebarButton:" destination="-1" eventType="touchUpInside" id="6Nd-o8-rIN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ7-Ir-oxb">
+                                    <rect key="frame" x="49" y="98" width="64" height="30"/>
+                                    <state key="normal" title="Mentions">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTapSidebarButton:" destination="-1" eventType="touchUpInside" id="dyZ-Wd-Scl"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="IZ7-Ir-oxb" firstAttribute="top" secondItem="jYr-TS-YB6" secondAttribute="bottom" constant="14" id="29T-J2-fzg"/>
+                                <constraint firstAttribute="centerX" secondItem="jYr-TS-YB6" secondAttribute="centerX" id="8XS-57-8g2"/>
+                                <constraint firstItem="jYr-TS-YB6" firstAttribute="top" secondItem="3Tz-Yo-yXK" secondAttribute="top" constant="54" id="8eI-8t-rJ9"/>
+                                <constraint firstItem="7o0-ay-ciY" firstAttribute="top" secondItem="IZ7-Ir-oxb" secondAttribute="bottom" constant="14" id="Ofu-70-bA2"/>
+                                <constraint firstItem="IZ7-Ir-oxb" firstAttribute="centerX" secondItem="7o0-ay-ciY" secondAttribute="centerX" constant="1" id="brN-5O-ZlP"/>
+                                <constraint firstItem="IZ7-Ir-oxb" firstAttribute="centerX" secondItem="jYr-TS-YB6" secondAttribute="centerX" constant="0.5" id="ccP-dw-IfX"/>
+                                <constraint firstAttribute="width" constant="160" id="dR7-Ce-BOv"/>
+                                <constraint firstItem="7o0-ay-ciY" firstAttribute="top" secondItem="IZ7-Ir-oxb" secondAttribute="bottom" constant="8" id="g8t-3o-WpP"/>
+                                <constraint firstItem="IZ7-Ir-oxb" firstAttribute="top" secondItem="jYr-TS-YB6" secondAttribute="bottom" constant="3" id="xTN-V8-Aoe"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="xTN-V8-Aoe"/>
+                                    <exclude reference="g8t-3o-WpP"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJN-yM-VMw">
+                            <rect key="frame" x="160" y="0.0" width="600" height="600"/>
+                            <color key="backgroundColor" red="0.23921568630000001" green="0.63137254899999995" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="PPg-SX-qYK" appends="YES" id="isI-6E-duP"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="pJN-yM-VMw" secondAttribute="centerX" constant="-160" id="Ccv-Gi-xvb"/>
+                        <constraint firstItem="3Tz-Yo-yXK" firstAttribute="leading" secondItem="yXf-f3-PaR" secondAttribute="leading" id="SbF-UB-0nL"/>
+                        <constraint firstAttribute="bottom" secondItem="3Tz-Yo-yXK" secondAttribute="bottom" id="VP5-Hx-zJM"/>
+                        <constraint firstAttribute="centerY" secondItem="pJN-yM-VMw" secondAttribute="centerY" id="YHl-9P-8aM"/>
+                        <constraint firstItem="3Tz-Yo-yXK" firstAttribute="top" secondItem="yXf-f3-PaR" secondAttribute="top" id="pol-nR-md0"/>
+                        <constraint firstAttribute="height" secondItem="pJN-yM-VMw" secondAttribute="height" id="wih-fT-VwK"/>
+                        <constraint firstAttribute="width" secondItem="pJN-yM-VMw" secondAttribute="width" id="zgx-Eu-4HJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yXf-f3-PaR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CHz-9h-b0H"/>
+                <constraint firstAttribute="bottom" secondItem="yXf-f3-PaR" secondAttribute="bottom" id="NYu-ue-b2v"/>
+                <constraint firstAttribute="trailing" secondItem="yXf-f3-PaR" secondAttribute="trailing" id="PRq-uY-zeK"/>
+                <constraint firstItem="yXf-f3-PaR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RE7-vj-RfG"/>
+            </constraints>
+        </view>
+        <swipeGestureRecognizer direction="right" id="PPg-SX-qYK">
+            <connections>
+                <action selector="didSwipe:" destination="-1" id="Us4-6I-6nc"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+</document>
